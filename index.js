@@ -4,6 +4,7 @@ const { connectToMongoDB } = require("./connect")
 const urlRoute = require("./routes/url")
 const URL = require("./models/url")
 const staticRoute= require('./routes/staticRouter')
+const userRoute = require('./routes/user')
 const app = express()
 const port = 8001;
 
@@ -17,7 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/url", urlRoute);
-
+app.use("/user", userRoute);
 app.use ("/", staticRoute);
 
 
